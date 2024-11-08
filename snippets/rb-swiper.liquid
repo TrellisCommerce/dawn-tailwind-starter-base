@@ -1,7 +1,7 @@
-<div class='flex flex-col'>
-  <h2>{{ heading }}</h2>
-  <swiper-slider class='swiper max-w-[1000px]'>
-    <div class='swiper-wrapper'>
+<div class='flex flex-col overflow-hidden'>
+  <h2 class='font-semibold uppercase mb-8'>{{ heading }}</h2>
+  <swiper-slider class='swiper max-w-[100vw]'>
+    <div class='swiper-wrapper flex'>
       {% for product in products %}
         <div class='swiper-slide flex flex-col'>
           {% render 'card-product',

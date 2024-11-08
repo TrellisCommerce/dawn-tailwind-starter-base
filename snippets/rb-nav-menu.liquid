@@ -1,42 +1,47 @@
-{% assign rows = 0 %}
-{% for block in section.blocks %}
-  {% assign _block = block.settings %}
-  {% case block.type %}
-  {% endcase %}
-{% endfor %}
-<menu-swiper class='menu-swiper swiper'>
-  <!-- Additional required wrapper -->
-  <div class='swiper-wrapper md:flex md:flex-col'>
-    <!-- Slides -->
-    {% for block in section.blocks %}
-      {% assign _block = block.settings %}
-      {% if block.menu_id == block.menu_id %}
+<div class='flex flex-col'>
+  <ul class='flex flex-col gap-4 w-full'>
+    {% for link in linklists['collection-menu'].links %}
+      {% if link.title != 'Shop by Model' %}
+        <h2 class='text-[32px] uppercase font-semibold'>{{ link.title }}</h2>
+        {%- if link.links != blank -%}
+          <ul class='mm-grid grid-cols-2 md:flex md:flex-col gap-4'>
+            {%- for child_link in link.links -%}
+              <li class='flex items-center w-full shadow'>
+                <a
+                  href='{{ child_link.url }}'
+                  class='whitespace-nowrap w-full h-full p-3'
+                >
+                  {{ child_link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      {% else %}
+        <h2 class='text-[32px] uppercase font-semibold'>{{ link.title }}</h2>
+        {%- if link.links != blank -%}
+          <menu-swiper class='menu-swiper swiper w-full max-w-[100vw]'>
+            <ul class='swiper-wrapper md:flex md:flex-col gap-4'>
+              {%- for child_link in link.links -%}
+                <li class='swiper-slide lg:!h-fit flex items-center lg:!w-full shadow'>
+                  <a
+                    href='{{ child_link.url }}'
+                    class='whitespace-nowrap p-3 w-full h-full'
+                  >
+                    {{ child_link.title }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </menu-swiper>
+        {%- endif -%}
       {% endif %}
-      {% case block.type %}
-        {% when 'menu_heading' %}
-          <h2>{{ _block.menu_heading }}</h2>
-
-        {% when 'menu' %}
-          <div class='swiper-slide lg:!h-fit'>
-            <a href='{{ _block.menu_link }}' class='flex items-center p-3 w-full shadow'>
-              <img
-                src='{{ _block.menu_image | img_url: 'medium' }}'
-                alt='{{ _block.menu_text }}'
-                class='w-5 h-auto aspect-square'
-              >
-              <span>{{ _block.menu_text }}</span>
-            </a>
-          </div>
-      {% endcase %}
     {% endfor %}
-  </div>
-  <!-- If we need pagination -->
-  <div class='swiper-pagination'></div>
-
-  <!-- If we need navigation buttons -->
-  <div class='swiper-button-prev'></div>
-  <div class='swiper-button-next'></div>
-
-  <!-- If we need scrollbar -->
-  <div class='swiper-scrollbar'></div>
-</menu-swiper>
+  </ul>
+  {% if section.settings.disclaimer_title != blank and section.settings.disclaimer_body != blank %}
+    <div class='flex flex-col'>
+      <span>{{ section.settings.disclaimer_title }}</span>
+      <p>{{ section.settings.disclaimer_body }}</p>
+    </div>
+  {% endif %}
+</div>

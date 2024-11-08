@@ -5,10 +5,10 @@
 {% endcomment %}
 {% assign path = adastra | replace: '@/', '../' | replace: '~/', '../' %}
 {% if path == "/src/entrypoints/base.css" or path == "base.css" %}
-  {{ 'wan-base-92d84158.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
+  {{ 'wan-base-4a1a4c5a.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% elsif path == "/src/entrypoints/index.js" or path == "index.js" %}
-  <link rel="modulepreload" href="{{ 'wan-index-ae49f0aa.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
-  <script src="{{ 'wan-index-ae49f0aa.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
+  <link rel="modulepreload" href="{{ 'wan-index-0ee5ada6.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
+  <script src="{{ 'wan-index-0ee5ada6.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
   {{ 'wan-index-7c8ef494.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
-  {{ 'wan-base-92d84158.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
+  {{ 'wan-base-4a1a4c5a.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% endif %}

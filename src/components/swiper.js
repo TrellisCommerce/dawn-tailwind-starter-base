@@ -12,6 +12,7 @@ export default class SwiperSlider extends window.HTMLElement {
       autoplay: false,
       Scrollbar: true,
       spaceBetween: 10,
+      scrollbar: { draggable: true },
     });
   }
 }

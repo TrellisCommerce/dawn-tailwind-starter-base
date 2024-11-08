@@ -1,0 +1,16 @@
+{% for block in section.blocks %}
+  {% assign _block = block.settings %}
+  {% case block.type %}
+    {% when 'menu_heading' %}
+      <h2>{{ _block.menu_heading }}</h2>
+    {% when 'menu' %}
+      <a href='{{ _block.menu_link }}' class='flex items-center p-3 w-full shadow'>
+        <img
+          src='{{ _block.menu_image | img_url: 'medium' }}'
+          alt='{{ _block.menu_text }}'
+          class='w-5 h-auto aspect-square'
+        >
+        <span>{{ _block.menu_text }}</span>
+      </a>
+  {% endcase %}
+{% endfor %}

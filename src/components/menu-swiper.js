@@ -6,16 +6,6 @@ export default class MenuSwiper extends window.HTMLElement {
   constructor() {
     super();
 
-    console.log('test');
-
-    this.slider = new Swiper('.menu.swiper', {
-      modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: 4,
-      autoplay: false,
-      scrollbar: { draggable: true },
-      spaceBetween: 10,
-    });
-
     // Bind handleResize to this instance
     this.handleResize = this.handleResize.bind(this);
   }
@@ -24,7 +14,9 @@ export default class MenuSwiper extends window.HTMLElement {
     window.addEventListener('resize', this.handleResize);
 
     if (window.innerWidth > 768) {
-      this.destroySlider();
+      if (this.slider) {
+        this.destroySlider();
+      }
     } else {
       this.initSlider();
     }
@@ -32,7 +24,10 @@ export default class MenuSwiper extends window.HTMLElement {
 
   handleResize() {
     if (window.innerWidth > 768) {
-      this.destroySlider();
+      console.log('what is this slider', this.slider);
+      if (this.slider) {
+        this.destroySlider();
+      }
     } else {
       this.initSlider();
     }
@@ -52,6 +47,7 @@ export default class MenuSwiper extends window.HTMLElement {
   destroySlider() {
     if (this.slider) {
       this.slider.destroy(true, true);
+      this.slider.update();
       console.log('this slider', this.slider);
     }
   }

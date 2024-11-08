@@ -38,11 +38,11 @@
   }
 {%- endstyle -%}
 
-<section class='max-w-[1624px] mx-auto w-full overflow-hidden grid grid-cols-1 lg:grid-cols-[400px_auto] gap-10'>
-  <div class='flex flex-col justify-start items-start gap-2'>
+<section class='max-w-[1624px] mx-auto px-4 w-full overflow-hidden mm-grid grid-cols-1 lg:grid-cols-[400px_auto] gap-10 py-20'>
+  <div class='flex justify-start items-start gap-2 w-full'>
     {% render 'rb-nav-menu', section: section %}
   </div>
-  <div class='grid grid-cols-1 gap-10'>
+  <div class='grid grid-cols-1 gap-10 overflow-hidden'>
     {% for block in section.blocks %}
       {% assign _block = block.settings %}
       {% case block.type %}
@@ -67,6 +67,18 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "disclaimer_title",
+      "label": "Disclaimer Title",
+      "default": "AN IMPORTANT NOTICE TO OUR VALUED CUSTOMERS"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_body",
+      "label": "Disclaimer Body",
+      "default": "Shipments of new orders may experience temporary delays. You may continue to browse and place orders on our site, but please be advised that it may take longer than usual to ship your order. We sincerely appreciate your patience. Thank you for continuing to support our small business in these challenging times!"
+    },
     {
       "type": "select",
       "id": "image_ratio",
@@ -247,48 +259,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "menu",
-      "name": "Menu",
-      "settings": [
-        {
-          "type": "text",
-          "id": "menu_text",
-          "label": "Menu Text"
-        },
-        {
-          "type": "url",
-          "id": "menu_link",
-          "label": "Menu Link"
-        },
-        {
-          "type": "image_picker",
-          "id": "menu_image",
-          "label": "Menu Image"
-        },
-        {
-          "type": "text",
-          "id": "menu_id",
-          "label": "Menu ID"
-        }
-      ]
-    },
-    {
-      "type": "menu-heading",
-      "name": "Menu Heading",
-      "settings": [
-        {
-          "type": "text",
-          "id": "menu_heading",
-          "label": "Menu Heading"
-        },
-        {
-          "type": "text",
-          "id": "menu_id",
-          "label": "Menu ID"
-        }
-      ]
-    },
     {
       "type": "collection",
       "name": "Collection",
