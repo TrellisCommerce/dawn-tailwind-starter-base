@@ -43,7 +43,18 @@
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
 
+    {% liquid
+      render 'colors'
+      render 'typography'
+    %}
+
     {{ content_for_header }}
+
+    {% liquid
+      # Always add entrypoint below content_for_header
+      render 'adastra' with 'base.css'
+      render 'adastra' with 'index.js'
+    %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'

@@ -1,0 +1,42 @@
+{% assign rows = 0 %}
+{% for block in section.blocks %}
+  {% assign _block = block.settings %}
+  {% case block.type %}
+  {% endcase %}
+{% endfor %}
+<menu-swiper class='menu-swiper swiper'>
+  <!-- Additional required wrapper -->
+  <div class='swiper-wrapper md:flex md:flex-col'>
+    <!-- Slides -->
+    {% for block in section.blocks %}
+      {% assign _block = block.settings %}
+      {% if block.menu_id == block.menu_id %}
+      {% endif %}
+      {% case block.type %}
+        {% when 'menu_heading' %}
+          <h2>{{ _block.menu_heading }}</h2>
+
+        {% when 'menu' %}
+          <div class='swiper-slide lg:!h-fit'>
+            <a href='{{ _block.menu_link }}' class='flex items-center p-3 w-full shadow'>
+              <img
+                src='{{ _block.menu_image | img_url: 'medium' }}'
+                alt='{{ _block.menu_text }}'
+                class='w-5 h-auto aspect-square'
+              >
+              <span>{{ _block.menu_text }}</span>
+            </a>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+  <!-- If we need pagination -->
+  <div class='swiper-pagination'></div>
+
+  <!-- If we need navigation buttons -->
+  <div class='swiper-button-prev'></div>
+  <div class='swiper-button-next'></div>
+
+  <!-- If we need scrollbar -->
+  <div class='swiper-scrollbar'></div>
+</menu-swiper>

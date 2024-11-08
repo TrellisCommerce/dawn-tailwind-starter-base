@@ -1,0 +1,22 @@
+{% comment %}
+  Renders a set of color tokens.
+
+  Adastra also teaches you stuff ✦
+  - Use css variables and hsl colors to set different color schemes.
+
+  Usage:
+    {% render 'colors' %}
+{% endcomment %}
+
+{% style %}
+  :root {
+    --color-accent: {{ settings.colors_accent.hue }} {{ settings.colors_accent.saturation }}% {{ settings.colors_accent.lightness }}%;
+    --color-surface: {{ settings.colors_surface.hue }} {{ settings.colors_surface.saturation }}% {{ settings.colors_surface.lightness }}%;
+
+    --color-primary: {{ settings.colors_primary.hue }} {{ settings.colors_primary.saturation }}% {{ settings.colors_primary.lightness }}%;
+    --color-contrast: {{ settings.colors_contrast.hue }} {{ settings.colors_contrast.saturation }}% {{ settings.colors_contrast.lightness }}%;
+
+    --color-secondary: {{ settings.colors_secondary.hue }} {{ settings.colors_secondary.saturation }}% {{ settings.colors_secondary.lightness }}%;
+    --gradient: {{ settings.colors_gradient }};
+  }
+{% endstyle %}

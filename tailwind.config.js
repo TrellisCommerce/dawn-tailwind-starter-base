@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'twcss-',
+  prefix: '',
   content: [
     './layout/*.liquid',
     './templates/*.liquid',
@@ -14,7 +14,7 @@ module.exports = {
       lg: '990px',
       xlg: '1440px',
       x2lg: '1920px',
-      pageMaxWidth: '1440px',
+      pageMaxWidth: '1624px',
     },
     extend: {
       fontFamily: {

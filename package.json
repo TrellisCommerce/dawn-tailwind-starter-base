@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "vite",
+    "build": "vite build",
+    "dev:shopify": "shopify theme dev --store='https://model-motorcars.myshopify.com'",
+    "dev:css": "npx tailwindcss -i assets/app-tailwind.css -o ./assets/app.css --watch",
+    "preview": "shopify theme open -d",
+    "check": "shopify theme check"
   },
   "repository": {
     "type": "git",
@@ -18,15 +24,21 @@
   },
   "homepage": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base#readme",
   "devDependencies": {
+    "@shopify/cli": "latest",
+    "@shopify/theme": "latest",
+    "adastra-plugin": "latest",
     "autoprefixer": "^10.4.4",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.47",
     "prettier": "^2.5.1",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.14",
+    "vite": "^4.5.5"
   },
   "dependencies": {
-    "@trelliscommerce/prettier-config": "^1.0.0"
+    "@trelliscommerce/prettier-config": "^1.0.0",
+    "alpinejs": "^3.14.3",
+    "swiper": "^11.1.14"
   },
   "prettier": "@trelliscommerce/prettier-config",
   "lint-staged": {

@@ -1,11 +1,26 @@
-# OS generated files #
-######################
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+dist
+.editorconfig
+
+# Misc
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-.idea
-ehthumbs.db
 Thumbs.db
-node_modules
+logs
+*.log
+.env
+
+# Adastra
+assets/adastra.manifest.json
