@@ -1,7 +1,10 @@
-<div class='flex flex-col overflow-hidden'>
-  <h2 class='font-semibold uppercase mb-8'>{{ heading }}</h2>
-  <swiper-slider class='swiper max-w-[100vw]'>
-    <div class='swiper-wrapper flex'>
+<div class='flex flex-col overflow-hidden pb-10'>
+  <div class='flex items-center whitespace-nowrap mb-8 '>
+    <h2 class='font-semibold uppercase inline'>{{ heading }}</h2>
+    <div class='bg-[#A42325] h-[1px] w-full !block grow ml-4'></div>
+  </div>
+  <swiper-slider class='swiper max-w-full pt-1 relative group mb-10 pb-8'>
+    <div class='swiper-wrapper flex max-w-full'>
       {% for product in products %}
         <div class='swiper-slide flex flex-col'>
           {% render 'card-product',
@@ -19,8 +22,15 @@
         </div>
       {% endfor %}
     </div>
-    <div class='swiper-button-prev'></div>
-    <div class='swiper-button-next'></div>
+    <div
+      class='swiper-button-prev absolute left-0 -mt-20 invisible group-hover:visible transition duration-500'
+    ></div>
+    <div
+      class='swiper-button-next absolute right-0 -mt-20 invisible group-hover:visible transition duration-500'
+    ></div>
     <div class='swiper-scrollbar'></div>
   </swiper-slider>
+  {% if view_all %}
+    {% render 'button', text: 'View All', class: 'dark' %}
+  {% endif %}
 </div>

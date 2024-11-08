@@ -4,13 +4,21 @@
       {% if link.title != 'Shop by Model' %}
         <h2 class='text-[32px] uppercase font-semibold'>{{ link.title }}</h2>
         {%- if link.links != blank -%}
-          <ul class='mm-grid grid-cols-2 md:flex md:flex-col gap-4'>
+          <ul class='mm-grid grid-cols-2 lg:flex lg:flex-col gap-4 {% unless forloop.last %} mb-4 {% endunless %}'>
             {%- for child_link in link.links -%}
               <li class='flex items-center w-full shadow'>
                 <a
                   href='{{ child_link.url }}'
-                  class='whitespace-nowrap w-full h-full p-3'
+                  class='whitespace-nowrap text-black text-lg w-full h-full py-2 px-3 flex gap-4 items-center group'
                 >
+                  {%- for grandchild_link in child_link.links -%}
+                    {% if grandchild_link.title contains 'icon-' %}
+                      {% assign icon = grandchild_link.title %}
+                      <span class='text-[grey] transition duration-200 group-hover:text-[#A42325]'>
+                        {% render 'icons', icon_name: icon %}
+                      </span>
+                    {% endif %}
+                  {%- endfor -%}
                   {{ child_link.title }}
                 </a>
               </li>
@@ -21,7 +29,7 @@
         <h2 class='text-[32px] uppercase font-semibold'>{{ link.title }}</h2>
         {%- if link.links != blank -%}
           <menu-swiper class='menu-swiper swiper w-full max-w-[100vw]'>
-            <ul class='swiper-wrapper md:flex md:flex-col gap-4'>
+            <ul class='swiper-wrapper lg:flex lg:flex-col gap-4'>
               {%- for child_link in link.links -%}
                 <li class='swiper-slide lg:!h-fit flex items-center lg:!w-full shadow'>
                   <a
@@ -39,9 +47,17 @@
     {% endfor %}
   </ul>
   {% if section.settings.disclaimer_title != blank and section.settings.disclaimer_body != blank %}
-    <div class='flex flex-col'>
-      <span>{{ section.settings.disclaimer_title }}</span>
-      <p>{{ section.settings.disclaimer_body }}</p>
+    <div
+      x-data='{ open : false }'
+      class='flex flex-col bg-[#FFECEC] lg:bg-transparent text-[#A42325] p-4 lg:px-0'
+    >
+      <div class='flex gap-2 items-center' @click='open =! open'>
+        {% render 'icons', icon_name: 'icon-info' %}
+        <span class='font-semibold text-base uppercase'>{{ section.settings.disclaimer_title }}</span>
+      </div>
+      <div class='invisible h-0 lg:h-auto lg:visible transition duration-500' :class="open ? '!visible !h-auto' : ''">
+        <p class='text-sm mt-4'>{{ section.settings.disclaimer_body }}</p>
+      </div>
     </div>
   {% endif %}
 </div>

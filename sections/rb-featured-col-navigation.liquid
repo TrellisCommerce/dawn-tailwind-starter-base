@@ -38,11 +38,11 @@
   }
 {%- endstyle -%}
 
-<section class='max-w-[1624px] mx-auto px-4 w-full overflow-hidden mm-grid grid-cols-1 lg:grid-cols-[400px_auto] gap-10 py-20'>
+<section class='page-width-desktop mx-auto !px-4 w-full overflow-hidden mm-grid grid-cols-1 lg:grid-cols-[300px_auto] gap-10 !py-20'>
   <div class='flex justify-start items-start gap-2 w-full'>
     {% render 'rb-nav-menu', section: section %}
   </div>
-  <div class='grid grid-cols-1 gap-10 overflow-hidden'>
+  <div class='flex flex-col gap-10 overflow-hidden'>
     {% for block in section.blocks %}
       {% assign _block = block.settings %}
       {% case block.type %}
@@ -51,10 +51,29 @@
             section: section,
             heading: _block.heading,
             collection: _block.collection,
+            view_all: _block.view_all,
             products: _block.collection.products
           %}
       {% endcase %}
     {% endfor %}
+    {% if section.settings.cta_title and section.settings.cta_body %}
+      <a href='{{ section.settings.cta_url }}'>
+        <div class='mm-grid grid-cols-2'>
+          <div>
+            {{ section.settings.cta_image | image_url: width: 600 | image_tag }}
+          </div>
+          <div class='bg-[#292929] p-10 flex flex-col justify-center items-center gap-4'>
+            <span class='text-white text-center text-xl'>{{ section.settings.cta_title }}</span>
+            <div class='text-white text-center text-lg'>
+              <p>{{ section.settings.cta_body }}</p>
+            </div>
+            <div class='w-fit py-2 px-4 bg-[#FBEB34] flex justify-center items-center text-center uppercase text-xl'>
+              {{ section.settings.cta_button_text }}
+            </div>
+          </div>
+        </div>
+      </a>
+    {% endif %}
   </div>
 </section>
 
@@ -78,6 +97,35 @@
       "id": "disclaimer_body",
       "label": "Disclaimer Body",
       "default": "Shipments of new orders may experience temporary delays. You may continue to browse and place orders on our site, but please be advised that it may take longer than usual to ship your order. We sincerely appreciate your patience. Thank you for continuing to support our small business in these challenging times!"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "CTA Title"
+    },
+    {
+      "type": "text",
+      "id": "cta_body",
+      "label": "CTA Body"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_image",
+      "label": "CTA Image"
     },
     {
       "type": "select",
@@ -272,6 +320,12 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "view_all",
+          "label": "Show View All Button",
+          "default": true
         }
       ]
     }

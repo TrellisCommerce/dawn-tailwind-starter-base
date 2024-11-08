@@ -13,7 +13,7 @@ export default class MenuSwiper extends window.HTMLElement {
   connectedCallback() {
     window.addEventListener('resize', this.handleResize);
 
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 989) {
       if (this.slider) {
         this.destroySlider();
       }
@@ -23,7 +23,7 @@ export default class MenuSwiper extends window.HTMLElement {
   }
 
   handleResize() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 989) {
       console.log('what is this slider', this.slider);
       if (this.slider) {
         this.destroySlider();

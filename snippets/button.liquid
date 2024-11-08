@@ -1,0 +1,34 @@
+{% assign class = class
+  | append: 'inline-block justify-center items-center py-4 px-8 uppercase font-semibold text-xl tracking-wide w-fit mx-auto relative overflow-hidden z-1'
+%}
+
+{% if class contains 'dark' %}
+  {% assign class = class | append: ' bg-black text-white' %}
+{% endif %}
+
+{% if custom_class %}
+  {% assign class = class | append: custom_class %}
+{% endif %}
+
+{% style %}
+  .btn.mm-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #a42325;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+
+  .btn.mm-btn:hover::after {
+    transform: translateX(0%); /* Move the background into view */
+  }
+{% endstyle %}
+
+<a class='btn mm-btn {{ class }}' href='{{ collection.url }}'>
+  <span class='relative z-[2]'>{{ text }}</span>
+</a>

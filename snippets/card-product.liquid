@@ -40,7 +40,13 @@
       assign ratio = 1
     endif
     assign product_title = card_product.title | split: ' - ' | first
-    assign sku = card_product.title | split: ' - ' | last
+
+    if product_title contains 'Part No. '
+      assign sku_string = product_title | split: 'Part No. ' | last
+      assign sku = sku_string | split: ' ' | first
+    else
+      assign sku = card_product.title | split: ' - ' | last
+    endif
   -%}
   <div class='card-wrapper product-card-wrapper underline-links-hover'>
     <div
@@ -56,7 +62,7 @@
       style='--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;'
     >
       <div
-        class='card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}'
+        class='card__inner shadow {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}'
         style='--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;'
       >
         {%- if card_product.featured_media -%}
@@ -145,10 +151,12 @@
           </div>
         </div>
       </div>
-      <div class='card__content'>
-        <div class='card__information'>
+      <div class='flex h-full'>
+        <div class='flex flex-col grow h-full py-3'>
+          <span class='uppercase text-grey tracking-widest text-[12px]'>{{ sku }}</span>
+
           <h3
-            class='card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}'
+            class='card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %} grow'
             {% if card_product.featured_media or settings.card_style == 'card' %}
               id='title-{{ section_id }}-{{ card_product.id }}'
             {% endif %}
@@ -156,13 +164,12 @@
             <a
               href='{{ card_product.url }}'
               id='CardLink-{{ section_id }}-{{ card_product.id }}'
-              class='full-unstyled-link'
+              class='text-lg font-medium'
               aria-labelledby='CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}'
             >
-              {{ product_title | escape }}
+              {{ product_title | truncate: 30 | escape }}
             </a>
           </h3>
-          <span>{{ sku }}</span>
 
           <div class='card-information'>
             {%- if show_vendor -%}
