@@ -18,6 +18,9 @@ body {
   place-items: center;
   min-height: 100vh;
 }
+.font-script {
+  font-family: var(--font-script-family);
+}
 main {
   max-width: 100%;
 }
@@ -57,9 +60,6 @@ button:focus-visible {
   margin: 0 auto;
   padding: 0 2rem;
 }
-footer {
-  opacity: 0.6;
-}
 .mm-grid {
   display: grid;
 }
@@ -75,5 +75,11 @@ footer {
   display: block !important;
 }
 .section-header {
+  width: 100% !important;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.shopify-section.shopify-section-group-footer-group {
   width: 100% !important;
 }

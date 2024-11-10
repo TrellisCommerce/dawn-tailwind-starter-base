@@ -145,7 +145,14 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
-      }
+      },
+      {
+        "type": "font_picker",
+        "id": "type_script_font",
+        "default": "assistant_n4",
+        "label": "Script Font",
+        "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
     ]
   },
   {

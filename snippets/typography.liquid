@@ -34,6 +34,12 @@
     {{ font_body_italic | font_face: font_display: 'swap' }}
   {% endunless %}
 
+  {% liquid
+      assign font_script = settings.type_script
+    %}
+
+    {{ font_script | font_face: font_display: 'swap' }}
+
   :root {
     --type-heading-scale: 1;
     --type-body-scale: 1;
@@ -45,6 +51,8 @@
     --font-body-family: {{ settings.type_body.family }}, {{ settings.type_body.fallback_families }};
     --font-body-style: {{ settings.type_body.style }};
     --font-body-weight: {{ settings.type_body.weight }};
+
+    --font-script-family: {{ settings.type_script.family }}, {{ settings.type_script.fallback_families }};
 
     --font-size-sm: calc(var(--type-body-scale) * 0.875rem);
     --font-size-base: calc(var(--type-body-scale) * 1rem);

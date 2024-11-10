@@ -1,16 +1,16 @@
 <section class='w-full mm-grid grid-cols-1 md:grid-cols-2'>
-  <div>
+  <div class='flex'>
     {{
       section.settings.hero_image
       | image_url: width: 2400
-      | image_tag: class: 'h-auto w-full md:h-full md:w-auto object-cover'
+      | image_tag: class: 'h-auto w-full md:h-full md:w-auto object-cover max-w-none grow'
     }}
   </div>
   <div class='p-10 text-white' style='background-image:{{ section.settings.background_color }};'>
     <h1 class='text-white font-semibold uppercase'>
       {{ section.settings.hero_title }}
       {% if section.settings.hero_span %}
-        <span class='text-[#FBEB34] whitespace-nowrap text-[32px]'>{{ section.settings.hero_span }}</span>
+        <span class='text-[#FBEB34] whitespace-nowrap text-[32px] font-script'>{{ section.settings.hero_span }}</span>
       {% endif %}
     </h1>
     <span>{{ section.settings.hero_subtitle }}</span>

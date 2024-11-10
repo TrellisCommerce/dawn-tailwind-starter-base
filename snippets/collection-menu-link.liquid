@@ -1,0 +1,27 @@
+<a
+  href='{{ child_link.url }}'
+  class='
+    whitespace-normal lg:whitespace-nowrap text-black text-lg w-full h-full py-2 px-3 flex gap-4 items-center group relative
+    {% if swiper_link %} justify-center lg:justify-start {% endif %}
+  '
+>
+  {%- for grandchild_link in child_link.links -%}
+    {% if grandchild_link.title contains 'icon-' %}
+      {% assign icon = grandchild_link.title %}
+      <span class='text-[grey] transition duration-200 group-hover:text-[#A42325]'>
+        {% render 'icons', icon_name: icon %}
+      </span>
+    {% elsif grandchild_link.title contains 'https' %}
+      {% assign icon = grandchild_link.title %}
+      <span class='flex justify-start items-center {% if swiper_link %} grayscale-0 lg:grayscale {% else %} grayscale {% endif %} transition duration-200 group-hover:grayscale-0 w-8 h-8'>
+        <img src='{{ icon }}'>
+      </span>
+    {% endif %}
+  {%- endfor -%}
+  <span class='{% if swiper_link %} text-[0px] lg:text-lg {% endif %}'>
+    {{ child_link.title }}
+  </span>
+  <span class='invisible lg:visible absolute right-4 opacity-0 transition duration-500 -translate-x-2 text-[grey] w-4 group-hover:opacity-100 group-hover:translate-x-0'>
+    {%- render 'icon-arrow' -%}
+  </span>
+</a>

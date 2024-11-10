@@ -1297,7 +1297,9 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .button:focus:not(:focus-visible):not(.focused),
-.shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(.focused),
+.shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(
+    .focused
+  ),
 .shopify-payment-button
   [role='button']:focus:not(:focus-visible):not(.focused) {
   box-shadow: inherit;
