@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "show_line_separator": true,
@@ -34,6 +35,41 @@
         "enable_country_selector": false,
         "enable_language_selector": false
       }
+    },
+    "mm_announcement_bar_Td3Fq9": {
+      "type": "mm-announcement-bar",
+      "blocks": {
+        "announcement_kamLkX": {
+          "type": "announcement",
+          "settings": {
+            "text": "Marvin Meit",
+            "text_email": "mrmeit@modelmotorcars.com",
+            "text_phone": "(954) 258-3986"
+          }
+        },
+        "announcement_zECpNf": {
+          "type": "announcement",
+          "settings": {
+            "text": "Frank Giordano",
+            "text_email": "frankg@modelmotorcars.com",
+            "text_phone": "(910) 381-2625"
+          }
+        },
+        "announcement_c9QBHY": {
+          "type": "announcement",
+          "settings": {
+            "text": "Bob Breslauer",
+            "text_email": "bbreslauer@modelmotorcars.com",
+            "text_phone": "(954) 609-4108"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_kamLkX",
+        "announcement_zECpNf",
+        "announcement_c9QBHY"
+      ],
+      "settings": {}
     },
     "header": {
       "type": "header",
@@ -57,6 +93,7 @@
   },
   "order": [
     "announcement-bar",
+    "mm_announcement_bar_Td3Fq9",
     "header"
   ]
 }
