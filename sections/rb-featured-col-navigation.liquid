@@ -57,19 +57,26 @@
       {% endcase %}
     {% endfor %}
     {% if section.settings.cta_title and section.settings.cta_body %}
-      <a href='{{ section.settings.cta_url }}'>
-        <div class='mm-grid grid-cols-2'>
+      <a class='flex flex-col items-center gap-2' href='{{ section.settings.cta_url }}'>
+        <div class='mm-grid grid-cols-1 md:grid-cols-2 justify-center'>
           <div>
-            {{ section.settings.cta_image | image_url: width: 600 | image_tag }}
+            {{ section.settings.cta_image | image_url: width: 600 | image_tag: class: 'h-full w-full object-cover' }}
           </div>
           <div class='bg-[#292929] p-10 flex flex-col justify-center items-center gap-4'>
-            <span class='text-white text-center text-xl'>{{ section.settings.cta_title }}</span>
+            <span class='text-white text-center text-2xl font-semibold font-heading'>
+              {{- section.settings.cta_title -}}
+            </span>
             <div class='text-white text-center text-lg'>
               <p>{{ section.settings.cta_body }}</p>
             </div>
-            <div class='w-fit py-2 px-4 bg-[#FBEB34] flex justify-center items-center text-center uppercase text-xl'>
-              {{ section.settings.cta_button_text }}
-            </div>
+            {% if section.settings.cta_button_text != blank %}
+              {% render 'button',
+                text: section.settings.cta_button_text,
+                link: section.settings.cta_url,
+                class: ' !bg-[#FBEB34] text-xl hover-black ',
+                tag: 'div'
+              %}
+            {% endif %}
           </div>
         </div>
       </a>

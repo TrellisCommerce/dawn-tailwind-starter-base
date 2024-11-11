@@ -10341,17 +10341,21 @@ Z.use(El);
 class Tl extends window.HTMLElement {
   constructor() {
     super(),
-      (this.slider = new Z('.swiper', {
+      (this.slider = new Z(this, {
         modules: [Ii, Oi, $i],
-        slidesPerView: 4,
+        slidesPerView: 1.5,
         autoplay: !1,
         spaceBetween: 10,
+        breakpoints: { 750: { slidesPerView: 2.5 }, 1e3: { slidesPerView: 4 } },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: this.querySelector('.swiper-button-next'),
+          prevEl: this.querySelector('.swiper-button-prev'),
           hide: !0,
         },
-        scrollbar: { el: '.swiper-scrollbar', draggable: !0 },
+        scrollbar: {
+          el: this.querySelector('.swiper-scrollbar'),
+          draggable: !0,
+        },
       }));
   }
 }
@@ -10366,26 +10370,27 @@ class Ml extends window.HTMLElement {
         : this.initSlider();
   }
   handleResize() {
-    window.innerWidth > 989
-      ? (console.log('what is this slider', this.slider),
-        this.slider && this.destroySlider())
-      : this.initSlider();
+    window.innerWidth > 989 ? this.destroySlider() : this.initSlider();
   }
   initSlider() {
-    (this.slider = new Z('.menu.swiper', {
-      modules: [Ii, Oi, $i],
-      slidesPerView: 4,
-      autoplay: !1,
-      scrollbar: { draggable: !0 },
-      spaceBetween: 10,
-    })),
-      console.log('slider init', this.slider);
+    this.slider ||
+      (this.slider = new Z(this, {
+        modules: [Ii, Oi, $i],
+        slidesPerView: 4.5,
+        autoplay: !1,
+        loop: !0,
+        scrollbar: { draggable: !0 },
+        spaceBetween: 10,
+        breakpoints: {
+          750: { slidesPerView: 4.5 },
+          500: { slidesPerView: 5.5 },
+        },
+      }));
   }
   destroySlider() {
-    this.slider &&
-      (this.slider.destroy(!0, !0),
-      this.slider.update(),
-      console.log('this slider', this.slider));
+    var e;
+    (e = this == null ? void 0 : this.slider) == null || e.destroy(!0, !0),
+      (this.slider = null);
   }
 }
 window.Alpine = gr;

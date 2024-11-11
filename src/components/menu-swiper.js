@@ -24,31 +24,35 @@ export default class MenuSwiper extends window.HTMLElement {
 
   handleResize() {
     if (window.innerWidth > 989) {
-      console.log('what is this slider', this.slider);
-      if (this.slider) {
-        this.destroySlider();
-      }
+      this.destroySlider();
     } else {
       this.initSlider();
     }
   }
 
   initSlider() {
-    this.slider = new Swiper('.menu.swiper', {
-      modules: [Navigation, Pagination, Scrollbar],
-      slidesPerView: 4,
-      autoplay: false,
-      scrollbar: { draggable: true },
-      spaceBetween: 10,
-    });
-    console.log('slider init', this.slider);
+    if (!this.slider) {
+      this.slider = new Swiper(this, {
+        modules: [Navigation, Pagination, Scrollbar],
+        slidesPerView: 4.5,
+        autoplay: false,
+        loop: true,
+        scrollbar: { draggable: true },
+        spaceBetween: 10,
+        breakpoints: {
+          750: {
+            slidesPerView: 4.5,
+          },
+          500: {
+            slidesPerView: 5.5,
+          },
+        },
+      });
+    }
   }
 
   destroySlider() {
-    if (this.slider) {
-      this.slider.destroy(true, true);
-      this.slider.update();
-      console.log('this slider', this.slider);
-    }
+    this?.slider?.destroy(true, true);
+    this.slider = null;
   }
 }

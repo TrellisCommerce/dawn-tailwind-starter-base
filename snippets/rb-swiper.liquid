@@ -3,7 +3,7 @@
     <h2 class='font-semibold uppercase inline'>{{ heading }}</h2>
     <div class='bg-[#A42325] h-[1px] w-full !block grow ml-4'></div>
   </div>
-  <swiper-slider class='swiper max-w-full pt-1 relative group mb-10 pb-8'>
+  <swiper-slider class='swiperSlider max-w-full pt-1 relative group mb-10 pb-8'>
     <div class='swiper-wrapper flex max-w-full'>
       {% for product in products %}
         <div class='swiper-slide flex flex-col'>
@@ -23,14 +23,18 @@
       {% endfor %}
     </div>
     <div
-      class='swiper-button-prev absolute left-0 -mt-20 invisible group-hover:visible transition duration-500'
-    ></div>
+      class='!hidden lg:!block swiper-button-prev text-white p-2 bg-black w-8 h-8 absolute left-0 -mt-20 invisible group-hover:visible transition duration-500'
+    >
+      {% render 'icons', icon_name: 'icon-chevron-left' %}
+    </div>
     <div
-      class='swiper-button-next absolute right-0 -mt-20 invisible group-hover:visible transition duration-500'
-    ></div>
-    <div class='swiper-scrollbar'></div>
+      class='!hidden lg:!block swiper-button-next text-white p-2 bg-black w-8 h-8 absolute right-0 -mt-20 invisible group-hover:visible transition duration-500'
+    >
+      {% render 'icons', icon_name: 'icon-chevron-right' %}
+    </div>
+    <div class='swiper-scrollbar !z-1'></div>
   </swiper-slider>
   {% if view_all %}
-    {% render 'button', text: 'View All', class: 'dark' %}
+    {% render 'button', text: 'View All', link: collection.url, class: 'dark' %}
   {% endif %}
 </div>

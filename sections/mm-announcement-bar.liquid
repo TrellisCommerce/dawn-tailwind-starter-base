@@ -22,13 +22,34 @@
   class='py-2 utility-bar !w-full color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}'
   {{ block.shopify_attributes }}
 >
-  <div class='page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}'>
-    <div class='flex justify-between items-center w-full'>
+  <div class='page-width !px-1 md:!px-[3.2rem] lg:!px-[5rem] utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}'>
+    <div class='flex justify-between gap-4 items-center w-full'>
       {% for block in section.blocks %}
-        <div class='flex items-center gap-4 text-sm'>
-          <span>{{ block.settings.text }}</span>
-          <a href='{{  block.settings.text_email }}'>{% render 'icons', icon_name: 'icon-email' %}</a>
-          <a href='{{  block.settings.text_phone }}'>{% render 'icons', icon_name: 'icon-phone' %}</a>
+        <div
+          x-data='{ open: false }'
+          @click='open = !open'
+          class='flex items-center gap-2 lg:gap-4 text-sm relative'
+        >
+          <span class='font-heading text-center cursor-pointer lg:cursor-auto'>
+            {{- block.settings.text -}}
+          </span>
+          <span
+            class='flex lg:hidden w-3 h-3 cursor-pointer transition duration-200'
+            :class="open ? 'rotate-180' : 'rotate-0'"
+          >
+            {%- render 'icon-caret' -%}
+          </span>
+          <div
+            :class="open ? '!visible translate-y-0' : 'invisible -translate-y-5 lg:translate-y-0'"
+            class='absolute -bottom-16 right-0 shadow-lg w-fit lg:shadow-none lg:w-auto p-3 lg:py-0 lg:static invisible lg:visible flex justify-center items-center gap-4 color-{{ section.settings.color_scheme }} transition duration-200'
+          >
+            <a href='mailto:{{  block.settings.text_email }}' class='hover:text-[#FBEB34] transition'>
+              {%- render 'icons', icon_name: 'icon-email' -%}
+            </a>
+            <a href='tel:{{  block.settings.text_phone }}' class='hover:text-[#FBEB34] transition'>
+              {%- render 'icons', icon_name: 'icon-phone' -%}
+            </a>
+          </div>
         </div>
       {% endfor %}
     </div>

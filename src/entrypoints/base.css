@@ -99,3 +99,18 @@ button:focus-visible {
 .shopify-section.shopify-section-group-footer-group {
   width: 100% !important;
 }
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none;
+}
+
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  z-index: 1 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  z-index: 1 !important;
+}

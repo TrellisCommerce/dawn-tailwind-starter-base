@@ -1,5 +1,5 @@
 {% assign class = class
-  | append: 'inline-block justify-center items-center py-4 px-8 uppercase font-semibold text-xl tracking-wide w-fit mx-auto relative overflow-hidden z-1'
+  | append: ' inline-block font-heading justify-center items-center py-4 px-8 uppercase font-semibold text-xl tracking-wide w-fit mx-auto relative overflow-hidden z-1'
 %}
 
 {% if class contains 'dark' %}
@@ -8,6 +8,12 @@
 
 {% if custom_class %}
   {% assign class = class | append: custom_class %}
+{% endif %}
+
+{% if tag != blank %}
+  {% assign tag = tag %}
+{% else %}
+  {% assign tag = 'a' %}
 {% endif %}
 
 {% style %}
@@ -24,11 +30,19 @@
     z-index: 0;
   }
 
+  .btn.mm-btn.hover-black::after {
+    background: #000;
+  }
+
+  .btn.mm-btn.hover-black:hover {
+    color: #fff;
+  }
+
   .btn.mm-btn:hover::after {
     transform: translateX(0%); /* Move the background into view */
   }
 {% endstyle %}
 
-<a class='btn mm-btn {{ class }}' href='{{ collection.url }}'>
+<{{ tag }} class='btn mm-btn {{ class }}' href='{{ link }}'>
   <span class='relative z-[2]'>{{ text }}</span>
-</a>
+</{{ tag }}>

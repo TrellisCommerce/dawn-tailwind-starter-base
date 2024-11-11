@@ -90,7 +90,7 @@
             endif
           -%}
           <div
-            class='footer__blocks-wrapper flex pt-10 {{ footer_grid_class }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+            class='footer__blocks-wrapper flex flex-col lg:flex-row pt-10 {{ footer_grid_class }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}

@@ -1,26 +1,36 @@
 {% assign swiper_link = false %}
-<div class='flex flex-col'>
+<div class='flex flex-col max-w-full'>
   <ul class='flex flex-col gap-4 w-full mb-10'>
     {% for link in linklists['collection-menu'].links %}
       {% if link.title != 'Shop by Model' %}
-        <h2 class='text-[28px] uppercase font-semibold'>{{ link.title }}</h2>
+        <div class='order-3 lg:order-1 flex items-center'>
+          <h2 class='text-[28px] uppercase font-semibold inline whitespace-nowrap'>
+            {{ link.title }}
+          </h2>
+          <div class='bg-[#A42325] h-[1px] w-full !block lg:!hidden grow ml-4'></div>
+        </div>
         {%- if link.links != blank -%}
-          <ul class='mm-grid grid-cols-2 lg:flex lg:flex-col gap-4 {% unless forloop.last %} mb-4 {% endunless %}'>
+          <ul class='order-4 lg:order-2 mm-grid grid-cols-2 lg:flex lg:flex-col gap-4 {% unless forloop.last %} lg:mb-4 {% endunless %}'>
             {%- for child_link in link.links -%}
-              <li class='flex items-center w-full shadow'>
+              <li class='flex items-center w-full min-h-20 lg:min-h-0 shadow bg-[#6E6E6E] text-white lg:bg-transparent lg:text-inherit hover:brightness-90 lg:hover:brightness-100'>
                 {% render 'collection-menu-link', child_link: child_link %}
               </li>
             {%- endfor -%}
           </ul>
         {%- endif -%}
       {% else %}
-        <h2 class='text-[28px] uppercase font-semibold'>{{ link.title }}</h2>
+        <div class='order-1 lg:order-3 flex items-center'>
+          <h2 class='text-[28px] uppercase font-semibold inline whitespace-nowrap'>
+            {{ link.title }}
+          </h2>
+          <div class='bg-[#A42325] h-[1px] w-full !block lg:!hidden grow ml-4'></div>
+        </div>
         {%- if link.links != blank -%}
-          <menu-swiper class='menu-swiper swiper w-full max-w-[100vw] py-1'>
-            <ul class='swiper-wrapper lg:flex lg:flex-col gap-4'>
+          <menu-swiper class='order-2 lg:order-4 w-full menu-swiper swiper max-w-full py-1'>
+            <ul class='swiper-wrapper w-full max-w-full lg:flex lg:flex-col lg:gap-4 mb-4 lg:mb-0'>
               {%- for child_link in link.links -%}
                 {% assign swiper_link = true %}
-                <li class='flex items-center {% if swiper_link %} swiper-slide w-fit lg:!w-full {% else %} w-full {% endif %} shadow'>
+                <li class='flex items-center border border-[grey] lg:border-none hover:backdrop-brightness-90 lg:hover:backdrop-brightness-100 {% if swiper_link %} swiper-slide h-auto w-fit lg:!w-full {% else %} w-full {% endif %} shadow'>
                   {% render 'collection-menu-link', child_link: child_link, swiper_link: swiper_link %}
                 </li>
               {%- endfor -%}
@@ -33,13 +43,16 @@
   {% if section.settings.disclaimer_title != blank and section.settings.disclaimer_body != blank %}
     <div
       x-data='{ open : false }'
-      class='flex flex-col bg-[#FFECEC] lg:bg-transparent text-[#A42325] p-4 lg:px-0'
+      class='flex flex-col bg-[#FFECEC] lg:bg-transparent text-[#A42325] p-4 lg:px-0 cursor-pointer lg:cursor-auto'
     >
       <div class='flex gap-2 items-center' @click='open =! open'>
         {% render 'icons', icon_name: 'icon-info' %}
         <span class='font-semibold text-base uppercase'>{{ section.settings.disclaimer_title }}</span>
       </div>
-      <div class='invisible h-0 lg:h-auto lg:visible transition duration-500' :class="open ? '!visible !h-auto' : ''">
+      <div
+        class='invisible h-0 lg:h-auto lg:visible transition duration-500'
+        :class="open ? '!visible !h-auto translate-y-0 opacity-100' : '-translate-y-5 lg:opacity-100 lg:translate-y-0 opacity-0'"
+      >
         <p class='text-sm mt-4'>{{ section.settings.disclaimer_body }}</p>
       </div>
     </div>
