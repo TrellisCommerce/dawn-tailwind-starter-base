@@ -10,11 +10,12 @@
 {
   "current": {
     "logo": "shopify://shop_images/2_MM_H-R_logo2.jpg",
-    "logo_width": 200,
+    "logo_width": 140,
     "type_header_font": "fjalla_one_n4",
     "heading_scale": 100,
     "type_body_font": "inter_n4",
     "body_scale": 100,
+    "type_script_font": "kalam_n4",
     "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
@@ -172,7 +173,7 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#121212",
+          "background": "#000f52",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",

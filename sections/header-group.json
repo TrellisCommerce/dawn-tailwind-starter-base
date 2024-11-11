@@ -69,13 +69,15 @@
         "announcement_zECpNf",
         "announcement_c9QBHY"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-4"
+      }
     },
     "header": {
       "type": "header",
       "settings": {
         "logo_position": "middle-left",
-        "menu": "main-menu",
+        "menu": "main-menu-2",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
