@@ -14,15 +14,15 @@
 {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
 
 {%- if paginate.parts.size > 0 -%}
-  <div class="pagination-wrapper">
-    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-      <ul class="pagination__list list-unstyled" role="list">
+  <div class='pagination-wrapper'>
+    <nav class='pagination' role='navigation' aria-label='{{ 'general.pagination.label' | t }}'>
+      <ul class='pagination__list list-unstyled !text-base !font-heading' role='list'>
         {%- if paginate.previous -%}
           <li>
             <a
-              href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.previous' | t }}"
+              href='{{ paginate.previous.url }}{{ anchor }}'
+              class='pagination__item pagination__item--next pagination__item-arrow link motion-reduce !text-base !font-heading'
+              aria-label='{{ 'general.pagination.previous' | t }}'
             >
               {% render 'icon-caret' %}
             </a>
@@ -33,25 +33,25 @@
           <li>
             {%- if part.is_link -%}
               <a
-                href="{{ part.url }}{{ anchor }}"
-                class="pagination__item link"
-                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                href='{{ part.url }}{{ anchor }}'
+                class='pagination__item link !text-base !font-heading'
+                aria-label='{{ 'general.pagination.page' | t: number: part.title }}'
               >
                 {{- part.title -}}
               </a>
             {%- else -%}
               {%- if part.title == paginate.current_page -%}
                 <a
-                  role="link"
-                  aria-disabled="true"
-                  class="pagination__item pagination__item--current light"
-                  aria-current="page"
-                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                  role='link'
+                  aria-disabled='true'
+                  class='pagination__item pagination__item--current light'
+                  aria-current='page'
+                  aria-label='{{ 'general.pagination.page' | t: number: part.title }}'
                 >
                   {{- part.title -}}
                 </a>
               {%- else -%}
-                <span class="pagination__item">{{ part.title }}</span>
+                <span class='pagination__item'>{{ part.title }}</span>
               {%- endif -%}
             {%- endif -%}
           </li>
@@ -60,9 +60,9 @@
         {%- if paginate.next -%}
           <li>
             <a
-              href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.next' | t }}"
+              href='{{ paginate.next.url }}{{ anchor }}'
+              class='pagination__item pagination__item--prev pagination__item-arrow link motion-reduce'
+              aria-label='{{ 'general.pagination.next' | t }}'
             >
               {%- render 'icon-caret' -%}
             </a>

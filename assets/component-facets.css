@@ -360,10 +360,12 @@
   transition-property: outline-color, outline-width, box-shadow;
   transition-duration: var(--duration-short);
   transition-timing-function: ease;
+  font-size: 16px;
 }
 
 .facets-layout-grid--image .facet-checkbox__text {
   padding: 0.4rem;
+  font-size: 16px;
 }
 
 /* Active state */
@@ -488,6 +490,7 @@
   z-index: -1;
   appearance: none;
   -webkit-appearance: none;
+  font-size: 16px;
 }
 
 .facets-layout-grid input[type='checkbox'],
@@ -518,7 +521,7 @@
 .facet-checkbox .icon-checkmark {
   visibility: hidden;
   position: absolute;
-  left: 0.3rem;
+  left: 0.1rem;
   z-index: 5;
   top: 1.4rem;
 }
@@ -590,7 +593,7 @@ span.active-facets__button-inner {
   color: rgb(var(--color-foreground));
   box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
   border-radius: 2.6rem;
-  font-size: 1rem;
+  font-size: 0.75rem;
   min-height: 0;
   min-width: 0;
   padding: 0.5rem 1rem;
@@ -621,7 +624,7 @@ span.active-facets__button-inner:after {
 
   .active-facets__button-wrapper *,
   span.active-facets__button-inner {
-    font-size: 1.4rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -910,7 +913,7 @@ details.menu-opening .mobile-facets__close svg {
   margin-top: 1.5rem;
   padding: 1.2rem 2.6rem;
   text-decoration: none;
-
+  font-family: var(--font-heading-family);
   display: grid;
   grid-template-columns: min-content 1fr;
   text-align: start;
@@ -958,6 +961,7 @@ details.menu-opening .mobile-facets__close svg {
 
 .mobile-facets__summary {
   padding: 1.3rem 2.5rem;
+  font-family: var(--font-heading-family);
 }
 
 .mobile-facets__summary svg {
