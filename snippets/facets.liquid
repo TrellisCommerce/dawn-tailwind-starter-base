@@ -127,6 +127,7 @@
               {% case filter.type %}
                 {% when 'boolean', 'list' %}
                   <details
+                    x-data='{ open: false }'
                     id='Details-{{ filter.param_name | escape }}-{{ section.id }}'
                     class='{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} font-heading text-base border-b border-gray {% endif %} js-filter'
                     data-index='{{ forloop.index }}'
@@ -337,9 +338,6 @@
                     >
                       <div class='{% if filter_type == 'horizontal' %}facets__header{% else %} {% endif %}'>
                         {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                        <span class='facets__selected !text-sm'>
-                          {{- 'products.facets.max_price' | t: price: max_price_amount -}}
-                        </span>
                         {%- if filter_type != 'vertical' -%}
                           <facet-remove>
                             <a href='{{ filter.url_to_remove }}' class='facets__reset link underlined-link'>

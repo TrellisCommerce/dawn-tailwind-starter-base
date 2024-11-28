@@ -240,7 +240,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 .text-body {
-  font-size: 1.5rem;
+  font-size: 1rem;
   letter-spacing: 0.06rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   font-family: var(--font-body-family);
@@ -704,9 +704,9 @@ summary::-webkit-details-marker {
 }
 
 *:focus-visible {
-  outline: var(--focused-base-outline);
-  outline-offset: var(--focused-base-outline-offset);
-  box-shadow: var(--focused-base-box-shadow);
+  outline: inherit;
+  /* outline-offset: var(--focused-base-outline-offset);
+  box-shadow: var(--focused-base-box-shadow); */
 }
 
 /* Fallback - for browsers that don't support :focus-visible, a fallback is set for :focus */
@@ -1887,10 +1887,10 @@ input[type='checkbox'] {
 .quantity {
   color: rgba(var(--color-foreground));
   position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width));
   display: flex;
   border-radius: var(--inputs-radius);
-  min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);
+  min-height: calc((var(--inputs-border-width) * 2) + 2.5rem);
 }
 
 .quantity:after {
@@ -1984,8 +1984,8 @@ input[type='checkbox'] {
 
 .quantity__button:not(:focus-visible):not(.focused),
 .quantity__input:not(:focus-visible):not(.focused) {
-  box-shadow: inherit;
-  background-color: inherit;
+  box-shadow: none;
+  background-color: none;
 }
 
 .quantity__input:-webkit-autofill,
@@ -3553,6 +3553,7 @@ details-disclosure > details {
   position: absolute;
   z-index: 1;
   width: 1.8rem;
+  display: none !important;
 }
 
 .loading__spinner {
