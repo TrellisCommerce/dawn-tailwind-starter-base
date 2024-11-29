@@ -16,7 +16,7 @@
         "hero_image": "shopify://shop_images/Doug-Clavette-28_1.png",
         "background_color": "linear-gradient(0deg, rgba(82, 3, 3, 1) 100%, rgba(215, 204, 250, 1) 100%, rgba(82, 3, 3, 1) 100%)",
         "hero_title": "The world's premier<br>aftermarket Pocher<br>online store",
-        "hero_span": "of 33 years",
+        "hero_span": "for 33 years",
         "hero_subtitle": "We supply aftermarket Pocher parts of unsurpassed quality, so you can pursue your passion at a larger scale",
         "hero_button_text": ""
       }
@@ -290,11 +290,11 @@
         "heading": "Latest News",
         "heading_size": "h2",
         "blog": "whats-new",
-        "post_limit": 3,
-        "columns_desktop": 3,
+        "post_limit": 2,
+        "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_image": true,
-        "show_date": true,
+        "show_date": false,
         "show_author": false,
         "show_view_all": true,
         "padding_top": 36,
