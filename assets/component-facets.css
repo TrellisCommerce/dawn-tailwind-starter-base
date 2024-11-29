@@ -827,7 +827,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__count {
   color: rgba(var(--color-foreground), 0.7);
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin: 0;
   flex-grow: 1;
 }

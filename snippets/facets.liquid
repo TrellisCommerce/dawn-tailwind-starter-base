@@ -431,7 +431,7 @@
             </div>
           {%- endif -%}
           <div class='product-count light' role='status'>
-            <h2 class='product-count__text text-body'>
+            <h2 class='text-sm'>
               <span id='ProductCountDesktop'>
                 {%- if results.results_count -%}
                   {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
@@ -887,7 +887,7 @@
     class='product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}'
     role='status'
   >
-    <h2 class='product-count__text text-body'>
+    <h2 class='text-sm'>
       <span id='ProductCount'>
         {%- if results.results_count -%}
           {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}

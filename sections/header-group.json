@@ -77,8 +77,8 @@
       "type": "header",
       "settings": {
         "logo_position": "middle-left",
-        "menu": "main-menu-2",
-        "menu_type_desktop": "mega",
+        "menu": "main-menu-new",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",

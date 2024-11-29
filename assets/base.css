@@ -103,7 +103,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 1rem;
   }
 
   .header.page-width,
@@ -408,7 +408,7 @@ blockquote {
 .field__input,
 .form__label,
 .select__select {
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   letter-spacing: 0.04rem;
 }
@@ -1199,8 +1199,8 @@ button.shopify-payment-button__button--unbranded,
 .shopify-challenge__button,
 .customer button,
 button.shopify-payment-button__button--unbranded {
-  min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  /* min-width: calc(12rem + var(--buttons-border-width) * 2); */
+  min-height: 42px;
 }
 
 .shopify-payment-button__button--branded {
@@ -1315,7 +1315,7 @@ button.shopify-payment-button__button--unbranded {
 .button-label,
 .shopify-challenge__button,
 .customer button {
-  font-size: 1.5rem;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
@@ -1887,7 +1887,7 @@ input[type='checkbox'] {
 .quantity {
   color: rgba(var(--color-foreground));
   position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width));
+  width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width));
   display: flex;
   border-radius: var(--inputs-radius);
   min-height: calc((var(--inputs-border-width) * 2) + 2.5rem);
@@ -1930,7 +1930,7 @@ input[type='checkbox'] {
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 500;
   opacity: 0.85;
   text-align: center;
@@ -1944,9 +1944,9 @@ input[type='checkbox'] {
 }
 
 .quantity__button {
-  width: calc(4.5rem / var(--font-body-scale));
+  width: calc(2rem / var(--font-body-scale));
   flex-shrink: 0;
-  font-size: 1.8rem;
+  font-size: 1rem;
   border: 0;
   background-color: transparent;
   cursor: pointer;
@@ -2926,10 +2926,11 @@ details-disclosure > details {
   border: 1px solid transparent;
   border-radius: var(--badge-corner-radius);
   display: inline-block;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1rem;
   line-height: 1;
-  padding: 0.5rem 1.3rem 0.6rem 1.3rem;
+  padding: 0.25rem;
+  text-transform: uppercase;
   text-align: center;
   background-color: rgb(var(--color-badge-background));
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
