@@ -41,14 +41,15 @@
           </span>
           <div
             :class="open ? '!visible translate-y-0' : 'invisible -translate-y-5 lg:translate-y-0'"
-            class='absolute -bottom-16 right-0 shadow-lg w-fit lg:shadow-none lg:w-auto p-3 lg:py-0 lg:static invisible lg:visible flex justify-center items-center gap-4 color-{{ section.settings.color_scheme }} transition duration-200'
+            class='absolute -bottom-16 {% unless forloop.first %} right-0 {% endunless %} shadow-lg w-fit lg:shadow-none lg:w-auto p-3 lg:py-0 lg:static invisible lg:visible flex justify-center items-center gap-4 color-{{ section.settings.color_scheme }} transition duration-200'
           >
             <a href='mailto:{{  block.settings.text_email }}' class='hover:text-[#FBEB34] transition'>
               {%- render 'icons', icon_name: 'icon-email' -%}
             </a>
-            <a href='tel:{{  block.settings.text_phone }}' class='hover:text-[#FBEB34] transition'>
-              {%- render 'icons', icon_name: 'icon-phone' -%}
-            </a>
+            <span class='transition'>
+              {% comment %} {%- render 'icons', icon_name: 'icon-phone' -%} {% endcomment %}
+              <span class='whitespace-nowrap'>{{ block.settings.text_phone }}</span>
+            </span>
           </div>
         </div>
       {% endfor %}
