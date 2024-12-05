@@ -4,11 +4,52 @@
   Do not attempt to modify this file directly, as any changes will be overwritten by the next build.
 {% endcomment %}
 {% assign path = adastra | replace: '@/', '../' | replace: '~/', '../' %}
-{% if path == "/src/entrypoints/base.css" or path == "base.css" %}
-  {{ 'mm-base-4e4d81c2.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
-{% elsif path == "/src/entrypoints/index.js" or path == "index.js" %}
-  <link rel="modulepreload" href="{{ 'mm-index-3f20d20b.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
-  <script src="{{ 'mm-index-3f20d20b.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
-  {{ 'mm-index-db544325.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
-  {{ 'mm-base-4e4d81c2.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
+{% liquid
+  assign path_prefix = path | slice: 0
+  if path_prefix == '/'
+    assign file_url_prefix = 'http://localhost:3000'
+  else
+    assign file_url_prefix = 'http://localhost:3000/src/entrypoints/'
+  endif
+
+  assign file_url = path | prepend: file_url_prefix
+  assign file_name = path | split: '/' | last
+  if file_name contains '.'
+    assign file_extension = file_name | split: '.' | last
+  endif
+
+  assign css_extensions = 'css|less|sass|scss|styl|stylus|pcss|postcss' | split: '|'
+  assign jsx_extensions = 'jsx|tsx' | split: '|'
+  assign is_css = false
+  assign is_jsx = false
+
+  if css_extensions contains file_extension
+    assign is_css = true
+  endif
+
+  if jsx_extensions contains file_extension
+    assign is_jsx = true
+  endif
+
+  if file_extension == blank
+    assign file_url = file_url | append: '/' | append: file_name
+  endif
+%}
+
+{% if is_jsx %}
+  <script type="module">
+    import RefreshRuntime from "http://localhost:3000/@react-refresh"
+    RefreshRuntime.injectIntoGlobalHook(window)
+    window.$RefreshReg$ = () => {}
+    window.$RefreshSig$ = () => (type) => type
+    window.__vite_plugin_react_preamble_installed__ = true
+  </script>
+{% endif %}
+
+<script src="http://localhost:3000/@vite/client" type="module"></script>
+
+{% if is_css %}
+  {{ file_url | stylesheet_tag }}
+{% else %}
+  <script src="{{ file_url }}" type="module" crossorigin="anonymous"></script>
 {% endif %}

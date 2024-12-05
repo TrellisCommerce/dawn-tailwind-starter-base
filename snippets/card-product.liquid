@@ -167,7 +167,7 @@
               class='text-lg font-medium'
               aria-labelledby='CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}'
             >
-              {{ product.title | truncate: 30 | escape }}
+              {{ card_product.title | truncate: 30 | escape }}
             </a>
           </h3>
 
