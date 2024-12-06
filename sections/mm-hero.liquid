@@ -2,12 +2,15 @@
   class='w-full mm-grid grid-cols-1 lg:grid-cols-2'
   style='background-image:{{ section.settings.background_color }};'
 >
-  <div class='flex'>
+  <div class='flex relative'>
     {{
       section.settings.hero_image
       | image_url: width: 2400
       | image_tag: class: 'h-auto w-full lg:h-full lg:w-auto object-cover max-w-none lg:max-w-full grow'
     }}
+    <div class='absolute bottom-0 right-0 left-0 h-5 bg-[rgba(255,255,255,0.7)] flex justify-center text-black items-center text-center text-sm'>
+      <span>Doug Clavette’s Mercedes 500K - Sport Roaster</span>
+    </div>
   </div>
   <div
     class='p-10 text-white flex flex-col justify-center items-start w-fit mx-auto'
