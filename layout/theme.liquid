@@ -272,6 +272,18 @@
       }
     {% endstyle %}
 
+    <style>
+      @font-face {
+        font-family: 'Rexlia';
+        src: url('{{ "rexlia.otf" | asset_url }}') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      .font-scale {
+        font-family: 'Rexlia', sans-serif;
+      }
+    </style>
+
     {{ 'app.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <link rel='stylesheet' href='{{ 'component-cart-items.css' | asset_url }}' media='print' onload="this.media='all'">

@@ -12,6 +12,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.font-scale {
+  font-family: 'Rexlia', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -113,4 +117,15 @@ button:focus-visible {
 .swiper-button-prev,
 .swiper-button-next {
   z-index: 1 !important;
+}
+
+.article-template__content .workshops .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-template .page-width {
+  padding-left: 16px;
+  padding-right: 16px;
 }

@@ -83,15 +83,16 @@
           <a
             id='HeaderMenu-{{ link.handle }}'
             href='{{ link.url }}'
-            class='header__menu-item list-menu__item link !font-heading !text-md link--text focus-inset'
+            class='
+              header__menu-item list-menu__item link !font-heading !text-md link--text focus-inset
+              {% if link.title == 'Scale Hardware' %} lowercase font-scale {% endif %}
+            '
             {% if link.current %}
               aria-current='page'
             {% endif %}
           >
             <span
-              {%- if link.current %}
-                class='header__active-menu-item'
-              {% endif %}
+              class='{%- if link.current %} header__active-menu-item {% endif %} {% if link.title == 'Scale Hardware' %} lowercase font-scale {% endif %}'
             >
               {{- link.title | escape -}}
             </span>

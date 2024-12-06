@@ -12,11 +12,15 @@
 <div class='collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient'>
   <div class='collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}'>
     <div class='collection-hero__text-wrapper'>
-      <h1 class='collection-hero__title text-center'>
+      <h1 class='collection-hero__title text-center {% if collection.title == 'scale hardware' %} text-3xl md:text-5xl font-scale !mb-3 {% endif %}'>
         <span class='visually-hidden'>{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
-
+      {% if collection.title == 'scale hardware' %}
+        <p class='text-center text-base uppercase tracking-widest mt-3 text-black font-heading mx-auto font-semibold mb-8 md:mb-10'>
+          Hardware and Small Parts
+        </p>
+      {% endif %}
       {%- if section.settings.show_collection_description -%}
         <div class='collection-hero__description rte'>{{ collection.description }}</div>
       {%- endif -%}
