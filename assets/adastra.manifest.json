@@ -1,0 +1,20 @@
+{
+  "src/entrypoints/base.css": {
+    "file": "mm-base-dc170cf9.css",
+    "isEntry": true,
+    "src": "src/entrypoints/base.css"
+  },
+  "src/entrypoints/index.css": {
+    "file": "mm-index-db544325.css",
+    "src": "src/entrypoints/index.css"
+  },
+  "src/entrypoints/index.js": {
+    "css": [
+      "mm-index-db544325.css",
+      "mm-base-dc170cf9.css"
+    ],
+    "file": "mm-index-b8021c80.js",
+    "isEntry": true,
+    "src": "src/entrypoints/index.js"
+  }
+}
