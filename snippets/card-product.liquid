@@ -39,13 +39,12 @@
     if ratio == 0 or ratio == null
       assign ratio = 1
     endif
-    assign product_title = card_product.title | split: ' - ' | first
+    assign product_title = card_product.title | split: ' | ' | first
 
-    if product_title contains 'Part No. '
-      assign sku_string = product_title | split: 'Part No. ' | last
-      assign sku = sku_string | split: ' ' | first
+    if product.metafields.product.part_number != blank
+      assign sku = card_product.metafields.product.part_number
     else
-      assign sku = card_product.title | split: ' - ' | last
+      assign sku = card_product.selected_or_first_available_variant.sku
     endif
   -%}
   <div class='card-wrapper product-card-wrapper underline-links-hover'>
@@ -128,7 +127,7 @@
                 class='full-unstyled-link'
                 aria-labelledby='StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}'
               >
-                {{ card_product.title | escape }}
+                {{ product_title | truncate: 45 | escape }}
               </a>
             </h3>
           </div>
@@ -167,7 +166,7 @@
               class='text-lg font-medium'
               aria-labelledby='CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}'
             >
-              {{ card_product.title | truncate: 30 | escape }}
+              {{ product_title | truncate: 45 | escape }}
             </a>
           </h3>
 
