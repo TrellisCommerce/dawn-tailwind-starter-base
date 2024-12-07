@@ -35,8 +35,8 @@
         "collection_BfW8yK": {
           "type": "collection",
           "settings": {
-            "heading": "Top Sellers",
-            "collection": "newest-products",
+            "heading": "Best Sellers",
+            "collection": "best-sellers",
             "view_all": true
           }
         }
