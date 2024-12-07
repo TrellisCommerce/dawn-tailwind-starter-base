@@ -16,7 +16,7 @@
         "hero_image": "shopify://shop_images/Doug-Clavette-28_1.png",
         "background_color": "linear-gradient(0deg, rgba(82, 3, 3, 1) 100%, rgba(215, 204, 250, 1) 100%, rgba(82, 3, 3, 1) 100%)",
         "hero_title": "The world's premier<br>aftermarket Pocher<br>online store",
-        "hero_span": "for 33 years",
+        "hero_span": "for 34 years",
         "hero_subtitle": "We supply aftermarket Pocher parts of unsurpassed quality, so you can pursue your passion at a larger scale",
         "hero_button_text": ""
       }
@@ -50,9 +50,9 @@
         "disclaimer_body": "Shipments of new orders may experience temporary delays. You may continue to browse and place orders on our site, but please be advised that it may take longer than usual to ship your order. We sincerely appreciate your patience. Thank you for continuing to support our small business in these challenging times!",
         "cta_title": "Model Motorcars Museum",
         "cta_body": "Featuring some of the best works of scale model design and construction",
-        "cta_url": "shopify://blogs/whats-new",
+        "cta_url": "https://www.modelmotorcars.com/museum/",
         "cta_button_text": "Browse the Museum",
-        "cta_image": "shopify://shop_images/image_20.png",
+        "cta_image": "shopify://shop_images/image001.jpg",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
