@@ -27,8 +27,8 @@
         "collection_DcnM8r": {
           "type": "collection",
           "settings": {
-            "heading": "Top Sellers",
-            "collection": "newest-products",
+            "heading": "New Arrivals",
+            "collection": "new-arrivals",
             "view_all": true
           }
         },
