@@ -24,6 +24,14 @@
     "rb_featured_col_navigation_rbywT9": {
       "type": "rb-featured-col-navigation",
       "blocks": {
+        "collection_BfW8yK": {
+          "type": "collection",
+          "settings": {
+            "heading": "Top Sellers",
+            "collection": "best-sellers",
+            "view_all": true
+          }
+        },
         "collection_DcnM8r": {
           "type": "collection",
           "settings": {
@@ -31,19 +39,11 @@
             "collection": "new-arrivals",
             "view_all": true
           }
-        },
-        "collection_BfW8yK": {
-          "type": "collection",
-          "settings": {
-            "heading": "Best Sellers",
-            "collection": "best-sellers",
-            "view_all": true
-          }
         }
       },
       "block_order": [
-        "collection_DcnM8r",
-        "collection_BfW8yK"
+        "collection_BfW8yK",
+        "collection_DcnM8r"
       ],
       "settings": {
         "disclaimer_title": "AN IMPORTANT NOTICE TO OUR VALUED CUSTOMERS",
