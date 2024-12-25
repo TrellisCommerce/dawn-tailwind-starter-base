@@ -20,7 +20,7 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 24,
+        "products_per_page": 36,
         "columns_desktop": 3,
         "color_scheme": "",
         "image_ratio": "square",
