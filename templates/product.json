@@ -16,6 +16,12 @@
           "type": "title",
           "settings": {}
         },
+        "sku_7Q3Ntp": {
+          "type": "sku",
+          "settings": {
+            "text_style": "uppercase"
+          }
+        },
         "caption": {
           "type": "text",
           "settings": {
@@ -94,6 +100,7 @@
       },
       "block_order": [
         "title",
+        "sku_7Q3Ntp",
         "caption",
         "price",
         "variant_picker",
