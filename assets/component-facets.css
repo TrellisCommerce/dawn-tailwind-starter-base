@@ -523,7 +523,7 @@
   position: absolute;
   left: 0.1rem;
   z-index: 5;
-  top: 1.4rem;
+  top: auto;
 }
 
 .facet-checkbox > input[type='checkbox']:checked ~ .icon-checkmark {
