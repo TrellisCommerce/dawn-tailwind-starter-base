@@ -14,12 +14,24 @@
   }
 {% endstyle %}
 <section class='page-width-desktop mx-auto !px-4 w-full !py-10 lg:!py-20'>
-  <div class='mb-10'>
-    <h1 class='text-center'>{{ section.settings.title }}</h1>
-  </div>
-  <photo-gallery class='mm-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5'>
+  {% if article.title != blank %}
+    <div class='mb-10'>
+      <h1 class='text-center'>{{ article.title }}</h1>
+    </div>
+  {% endif %}
+  {% if article.content != blank %}
+    <div class='mb-10'>
+      {{ article.content }}
+    </div>
+  {% endif %}
+  {% if section.settings.title != blank %}
+    <div class='mb-10'>
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+  {% endif %}
+  <photo-gallery class='mm-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
     {% for media in museum.media.value %}
-      <div class='gallery-object aspect-square h-fit cursor-pointer' data-index='{{ forloop.index0 }}'>
+      <div class='gallery-object md:aspect-square h-fit cursor-pointer' data-index='{{ forloop.index0 }}'>
         <div class='group overflow-hidden h-full w-full' lightbox-toggle>
           <div class='lightbox-object relative h-full w-fit'>
             {{ media | image_url: width: 1200 | image_tag: class: 'h-full w-full object-cover transition' }}

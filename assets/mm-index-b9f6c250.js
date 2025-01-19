@@ -10418,7 +10418,6 @@ class _l extends window.HTMLElement {
       }),
       this.querySelectorAll('.swiper-slide').forEach((r) => {
         r.querySelector('.zoom-icon').addEventListener('click', (a) => {
-          console.log('slide clicked');
           const l = this.slider.zoom;
           l.scale === 1 ? l.in() : l.out();
         });
