@@ -42,6 +42,7 @@
         "share",
         "content"
       ],
+      "disabled": true,
       "settings": {}
     },
     "photo_gallery_pKwUtj": {
