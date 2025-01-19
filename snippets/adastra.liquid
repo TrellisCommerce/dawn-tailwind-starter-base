@@ -5,10 +5,10 @@
 {% endcomment %}
 {% assign path = adastra | replace: '@/', '../' | replace: '~/', '../' %}
 {% if path == "/src/entrypoints/base.css" or path == "base.css" %}
-  {{ 'mm-base-dc170cf9.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
+  {{ 'mm-base-056c9d6d.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% elsif path == "/src/entrypoints/index.js" or path == "index.js" %}
-  <link rel="modulepreload" href="{{ 'mm-index-5344ffd4.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
-  <script src="{{ 'mm-index-5344ffd4.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
+  <link rel="modulepreload" href="{{ 'mm-index-3aa2fe8f.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
+  <script src="{{ 'mm-index-3aa2fe8f.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
   {{ 'mm-index-db544325.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
-  {{ 'mm-base-dc170cf9.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
+  {{ 'mm-base-056c9d6d.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% endif %}

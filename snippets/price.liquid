@@ -43,8 +43,7 @@
 {%- unless target == null and placeholder == null -%}
   <div
     class='
-      flex items-center
-      price
+      flex items-center flex-wrap price
       {%- if price_class %} {{ price_class }}{% endif -%}
       {%- if available == false %} price--sold-out{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
@@ -82,7 +81,7 @@
               -}}
             </span>
           {%- else -%}
-            <span class='price-item price-item--regular font-heading'>{{ money_price }} </span>
+            <span class='price-item price-item--regular font-heading !mr-1'>{{ money_price }} </span>
           {%- endif -%}
         </div>
       {% endif %}
@@ -121,14 +120,8 @@
         </small>
       {% endcomment %}
     </div>
-    {%- if show_badges -%}
-      <span class='uppercase text-sm py-2 px-4 text-white font-heading !tracking-wide price__badge-sale color-{{ settings.sale_badge_color_scheme }}'>
-        {{ 'products.product.on_sale' | t }}
-      </span>
-
-      <span class='uppercase text-sm py-2 px-4 text-white font-heading !tracking-wide price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}'>
-        {{ 'products.product.sold_out' | t }}
-      </span>
-    {%- endif -%}
+    {% if product.metafields.product.unit_quantity != blank %}
+      <span class='font-heading opacity-70 text-sm'>/{{ product.metafields.product.unit_quantity }}</span>
+    {% endif %}
   </div>
 {% endunless %}

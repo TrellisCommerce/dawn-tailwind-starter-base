@@ -1,457 +1,25 @@
+{% assign museum = article.metafields.article.museum.value %}
 {% style %}
-  .cb-image-grid {
-    background-color: #333;
-    color: white;
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container {
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__images-container {
-    -moz-column-gap: 1rem;
-    column-gap: 1rem;
-    -moz-columns: 2 200px;
-    columns: 2 200px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image {
-    position: relative;
-    overflow: hidden;
-    width: 150px;
-    margin: 0 1rem 1rem 0;
-    display: inline-block;
-    width: 100%;
-    max-height: 90vh;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:hover img {
-    transform: scale(1.075);
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image img {
-    border-radius: 4px;
-    overflow: hidden;
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    transition: transform 0.6s;
-    will-change: transform;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(1) {
-    height: 593px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(2) {
-    height: 506px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(3) {
-    height: 446px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(4) {
-    height: 510px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(5) {
-    height: 404px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(6) {
-    height: 398px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(7) {
-    height: 389px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(8) {
-    height: 560px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(9) {
-    height: 255px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(10) {
-    height: 582px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(11) {
-    height: 349px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(12) {
-    height: 499px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(13) {
-    height: 413px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(14) {
-    height: 403px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(15) {
-    height: 449px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(16) {
-    height: 419px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(17) {
-    height: 590px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(18) {
-    height: 340px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(19) {
-    height: 320px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(20) {
-    height: 537px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(21) {
-    height: 250px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(22) {
-    height: 311px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(23) {
-    height: 340px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(24) {
-    height: 565px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(25) {
-    height: 298px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(26) {
-    height: 279px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(27) {
-    height: 482px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(28) {
-    height: 499px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(29) {
-    height: 264px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(30) {
-    height: 553px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(31) {
-    height: 289px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(32) {
-    height: 388px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(33) {
-    height: 586px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(34) {
-    height: 517px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(35) {
-    height: 289px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(36) {
-    height: 490px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(37) {
-    height: 396px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(38) {
-    height: 324px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(39) {
-    height: 307px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(40) {
-    height: 264px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(41) {
-    height: 430px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(42) {
-    height: 517px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(43) {
-    height: 333px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(44) {
-    height: 333px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(45) {
-    height: 353px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(46) {
-    height: 219px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(47) {
-    height: 287px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(48) {
-    height: 530px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(49) {
-    height: 329px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(50) {
-    height: 272px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(51) {
-    height: 331px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(52) {
-    height: 342px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(53) {
-    height: 296px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(54) {
-    height: 549px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(55) {
-    height: 259px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(56) {
-    height: 342px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(57) {
-    height: 304px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(58) {
-    height: 308px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(59) {
-    height: 310px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(60) {
-    height: 349px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(61) {
-    height: 510px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(62) {
-    height: 564px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(63) {
-    height: 446px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(64) {
-    height: 282px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(65) {
-    height: 284px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(66) {
-    height: 381px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(67) {
-    height: 426px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(68) {
-    height: 509px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(69) {
-    height: 336px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(70) {
-    height: 454px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(71) {
-    height: 225px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(72) {
-    height: 223px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(73) {
-    height: 426px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(74) {
-    height: 427px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(75) {
-    height: 282px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(76) {
-    height: 401px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(77) {
-    height: 578px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(78) {
-    height: 573px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(79) {
-    height: 391px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(80) {
-    height: 262px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(81) {
-    height: 411px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(82) {
-    height: 343px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(83) {
-    height: 599px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(84) {
-    height: 445px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(85) {
-    height: 495px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(86) {
-    height: 282px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(87) {
-    height: 535px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(88) {
-    height: 342px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(89) {
-    height: 492px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(90) {
-    height: 505px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(91) {
-    height: 542px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(92) {
-    height: 490px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(93) {
-    height: 321px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(94) {
-    height: 278px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(95) {
-    height: 401px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(96) {
-    height: 437px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(97) {
-    height: 567px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(98) {
-    height: 485px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(99) {
-    height: 323px;
-  }
-  .cb-image-grid--type-one .cb-image-grid__container .cb-image-grid__image:nth-child(100) {
-    height: 527px;
+  dialog {
+    border: none;
+    max-width: 90%;
+    height: 90%;
+    margin: auto;
+    background-color: transparent;
   }
 
-  [lightbox-toggle] {
-    cursor: pointer;
-  }
-  [lightbox-toggle]:after {
-    position: absolute;
-    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" stroke="black" stroke-opacity="0.25" stroke-width="0.25" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm1-7h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H7a1 1 0 0 1 0-2h2V7a1 1 0 1 1 2 0v2z"/></svg>');
-    height: 32px;
-    width: 32px;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    will-change: opacity;
-    transition: opacity 0.2s;
-  }
-  [lightbox-toggle]:hover:after {
-    opacity: 1;
-    filter: drop-shadow(2px 4px 6px black);
-  }
-
-  .c-lightbox {
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    pointer-events: none;
-    position: fixed;
-    opacity: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9000000;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s;
-  }
-  .c-lightbox.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-  .c-lightbox .c-lightbox__container {
-    width: 100%;
-    height: 100%;
-  }
-  .c-lightbox .c-lightbox__close {
-    z-index: 999999;
-    position: absolute;
-    cursor: pointer;
-    top: 1vh;
-    right: 1vw;
-    color: white;
-  }
-  .c-lightbox .c-lightbox__close:hover {
-    color: red;
-  }
-  .c-lightbox .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-  .c-lightbox .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .c-lightbox .swiper-pagination {
-    color: white;
-  }
-  .c-lightbox .swiper-button-next,
-  .c-lightbox .swiper-button-prev {
-    color: white;
-  }
-  .c-lightbox .swiper-button-next:hover,
-  .c-lightbox .swiper-button-prev:hover {
-    color: red;
-  }
-  .c-lightbox .swiper-button-next:after,
-  .c-lightbox .swiper-button-prev:after {
-    font-size: 30px;
-  }
-  .c-lightbox .c-lightbox__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 75%;
-    width: 75%;
-    text-align: center;
-  }
-  .c-lightbox .c-lightbox__image img {
-    width: auto;
-    height: auto;
-    max-height: 90vh;
-    max-width: 90vw;
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
   }
 {% endstyle %}
-
-{% assign museum = article.metafields.article.museum.value %}
-
 <section class='page-width-desktop mx-auto !px-4 w-full !py-10 lg:!py-20'>
   <div class='mb-10'>
     <h1 class='text-center'>{{ section.settings.title }}</h1>
   </div>
-  <div class='mm-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5'>
+  <photo-gallery class='mm-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5'>
     {% for media in museum.media.value %}
-      <div class='aspect-square h-fit'>
+      <div class='gallery-object aspect-square h-fit cursor-pointer' data-index='{{ forloop.index0 }}'>
         <div class='group overflow-hidden h-full w-full' lightbox-toggle>
           <div class='lightbox-object relative h-full w-fit'>
             {{ media | image_url: width: 1200 | image_tag: class: 'h-full w-full object-cover transition' }}
@@ -462,9 +30,49 @@
         </div>
       </div>
     {% endfor %}
-
-    <photo-gallery class='swiper'> </photo-gallery>
-  </div>
+    <dialog class='swiper-container h-fit overflow-hidden'>
+      <div class='swiper-bound py-10 h-fit min-h-[300px]'>
+        {% render 'icon-close-small',
+          class: 'icon-close h-8 w-8 absolute z-[100] right-0 top-0 text-white cursor-pointer'
+        %}
+        <div class='swiper !h-fit !max-h-full flex items-center'>
+          <div class='swiper-wrapper flex max-w-full'>
+            {% for media in museum.media.value %}
+              <div class='swiper-slide flex flex-col max-h-full h-fit' data-index='{{ forloop.index0 }}'>
+                <div class='flex flex-col justify-center items-center max-h-full h-fit w-fit mx-auto'>
+                  <div class='relative overflow-hidden max-h-[600px] h-full'>
+                    {% render 'icon-zoom', class: 'absolute bottom-5 right-5 zoom-icon z-10 cursor-pointer' %}
+                    <div class='swiper-zoom-container'>
+                      {{
+                        media
+                        | image_url: width: 1200
+                        | image_tag: class: 'slide-img !max-h-[600px] h-full w-auto object-contain'
+                      }}
+                    </div>
+                  </div>
+                  <div class='flex justify-center text-white'>
+                    <span class='text-white font-heading font-semibold'>{{ media.alt }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <button
+            type='button'
+            class='rounded-none block swiper-button swiper-button-prev text-white p-2 bg-black w-8 h-8 absolute left-0 transition duration-500'
+          >
+            {% render 'icons', icon_name: 'icon-chevron-left', class: 'swiper-button' %}
+          </button>
+          <button
+            type='button'
+            class='rounded-none block swiper-button swiper-button-next text-white p-2 bg-black w-8 h-8 absolute right-0 transition duration-500'
+          >
+            {% render 'icons', icon_name: 'icon-chevron-right', class: 'swiper-button' %}
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </photo-gallery>
 </section>
 
 {% schema %}

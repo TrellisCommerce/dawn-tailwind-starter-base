@@ -11,11 +11,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
 .font-scale {
-  font-family: 'Rexlia', sans-serif;
+  font-family: Rexlia, sans-serif;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -23,113 +21,92 @@ body {
   place-items: center;
   min-height: 100vh;
 }
-
 .font-script {
   font-family: var(--font-script-family);
 }
-
 main {
   max-width: 100%;
 }
-
 a {
   color: hsla(var(--color-accent) / 1);
   text-decoration: none;
 }
-
 h1,
 h2,
 p {
   margin: 0;
   padding: 0;
 }
-
 h1 {
   font-family: var(--font-heading-family);
   font-size: calc(2.5 * var(--font-size-xl));
   line-height: 1.1;
 }
-
 button {
   border-radius: 0.5rem;
   border: 1px solid transparent;
   padding: 0.75rem 1.5rem;
   font-size: var(--font-size-base);
-  font-weight: bold;
+  font-weight: 700;
   font-family: var(--font-body-family);
   background-color: hsla(var(--color-contrast) / 1);
   color: hsla(var(--color-primary) / 1);
   cursor: pointer;
   margin: 2rem 0;
 }
-
 button:focus,
 button:focus-visible {
   outline: 4px auto hsla(var(--color-primary) / 1);
 }
-
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
 }
-
 .mm-grid {
   display: grid;
 }
-
 .swiper-scrollbar-drag {
   display: block !important;
   background: black;
 }
-
 .announcement-bar-section {
   width: 100% !important;
 }
-
 .swiper-button-prev,
 .swiper-button-next {
   display: block !important;
 }
-
 .section-header {
   width: 100% !important;
 }
-
 .justify-between {
   justify-content: space-between;
 }
-
 .shopify-section.shopify-section-group-footer-group {
   width: 100% !important;
 }
-
 .swiper-button-next:after,
 .swiper-button-prev:after {
   display: none;
 }
-
 .swiper-horizontal > .swiper-scrollbar,
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   z-index: 1 !important;
 }
-
 .swiper-button-prev,
 .swiper-button-next {
   z-index: 1 !important;
 }
-
 .article-template__content .workshops .row {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .article-template .page-width {
   padding-left: 16px;
   padding-right: 16px;
 }
-
 .overflow-clip {
   overflow: clip;
 }
